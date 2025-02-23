@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+table
+{
+  //max-width: 100%;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td
+{
+  border: 5px solid black;
+  position: relative;
+}
+
+table td.crossed
+{
+    background-image: linear-gradient(to bottom right,  transparent calc(50% - 3px), red, transparent calc(50% + 3px)), linear-gradient(to top right,  transparent calc(50% - 3px), red, transparent calc(50% + 3px)); 
+    //background-image: linear-gradient(45deg, #F06 25%, transparent 26%, transparent 75%, #F06 75%), linear-gradient(135deg, #F06 25%, #000 26%, #000 75%, #F06 75%);
+}
+
+</style>
+
+<script>
+
+// The size of the table.
+var iMaxNum = 15;
+
+// Vector de entrada
+var inputVector = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+// Set the length of the array to iMaxNum. The first array index is zero, not 1.
+var disociadaTable = new Array(iMaxNum);
+
+function init()
+{
+    document.getElementById('td01m').style.visibility ='hidden';
+    document.getElementById('td02m').style.visibility ='hidden';
+    document.getElementById('td03m').style.visibility ='hidden';
+    document.getElementById('td04m').style.visibility ='hidden';
+    document.getElementById('td05m').style.visibility ='hidden';
+    document.getElementById('td06m').style.visibility ='hidden';
+    document.getElementById('td07m').style.visibility ='hidden';
+    document.getElementById('td08m').style.visibility ='hidden';
+    document.getElementById('td09m').style.visibility ='hidden';
+    document.getElementById('td10m').style.visibility ='hidden';
+    document.getElementById('td11m').style.visibility ='hidden';
+    document.getElementById('td12m').style.visibility ='hidden';
+    document.getElementById('td13m').style.visibility ='hidden';
+    document.getElementById('td14m').style.visibility ='hidden';
+    document.getElementById('td15m').style.visibility ='hidden';
+
+    document.getElementById('td01').style.border = '5px solid black';
+    document.getElementById('td02').style.border = '5px solid black';
+    document.getElementById('td03').style.border = '5px solid black';
+    document.getElementById('td04').style.border = '5px solid black';
+    document.getElementById('td05').style.border = '5px solid black';
+    document.getElementById('td06').style.border = '5px solid black';
+    document.getElementById('td07').style.border = '5px solid black';
+    document.getElementById('td08').style.border = '5px solid black';
+    document.getElementById('td09').style.border = '5px solid black';
+    document.getElementById('td10').style.border = '5px solid black';
+    document.getElementById('td11').style.border = '5px solid black';
+    document.getElementById('td12').style.border = '5px solid black';
+    document.getElementById('td13').style.border = '5px solid black';
+    document.getElementById('td14').style.border = '5px solid black';
+    document.getElementById('td15').style.border = '5px solid black';
+
+    document.getElementById('td01').className = '';
+    document.getElementById('td01').className = '';
+    document.getElementById('td02').className = '';
+    document.getElementById('td03').className = '';
+    document.getElementById('td04').className = '';
+    document.getElementById('td05').className = '';
+    document.getElementById('td06').className = '';
+    document.getElementById('td07').className = '';
+    document.getElementById('td08').className = '';
+    document.getElementById('td09').className = '';
+    document.getElementById('td10').className = '';
+    document.getElementById('td11').className = '';
+    document.getElementById('td12').className = '';
+    document.getElementById('td13').className = '';
+    document.getElementById('td14').className = '';
+    document.getElementById('td15').className = '';
+}
+
+function disociadaMatrix()
+{
+    // Loop counters.
+    var i, j;
+
+    // Fill the each row in the table)
+    for (i = 0; i < iMaxNum; i++)
+    {
+        disociadaTable[00] = ['1', '1', '0', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '0', '0'];
+        disociadaTable[01] = ['1', '1', '1', '1', '1', '=', '=', '=', '0', '0', '1', '1', '0', '1', '0'];
+        disociadaTable[02] = ['0', '1', '1', '=', '1', '0', '0', '1', '0', '1', '1', '0', '=', '0', '0'];
+        disociadaTable[03] = ['0', '1', '=', '1', '1', '=', '1', '1', '1', '1', '1', '0', '=', '0', '='];
+        disociadaTable[04] = ['0', '1', '1', '1', '1', '1', '1', '0', '1', '1', '1', '=', '=', '=', '0'];
+        disociadaTable[05] = ['0', '=', '0', '=', '1', '1', '1', '0', '1', '1', '0', '=', '=', '=', '='];
+        disociadaTable[06] = ['0', '=', '0', '1', '1', '1', '1', '1', '1', '1', '1', '0', '1', '=', '1'];
+        disociadaTable[07] = ['0', '=', '1', '1', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '0'];
+        disociadaTable[08] = ['0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '0', '=', '=', '1'];
+        disociadaTable[09] = ['1', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '1'];
+        disociadaTable[10] = ['1', '1', '1', '1', '1', '0', '1', '1', '1', '1', '1', '=', '1', '0', '='];
+        disociadaTable[11] = ['0', '1', '0', '0', '=', '=', '0', '1', '0', '0', '=', '1', '1', '=', '0'];
+        disociadaTable[12] = ['0', '0', '=', '=', '=', '=', '1', '1', '=', '0', '1', '1', '1', '=', '0'];
+        disociadaTable[13] = ['0', '1', '0', '0', '=', '=', '=', '1', '=', '0', '0', '=', '=', '1', '0'];
+        disociadaTable[14] = ['0', '0', '0', '=', '0', '=', '1', '0', '1', '1', '=', '0', '0', '0', '1'];
+    }
+}
+
+function select(id)
+{
+    if (document.getElementById(id).className == '')
+    {
+        idNumber = id.substring(2, id.lenght);
+
+        if (document.getElementById(id).style.border == '5px solid red')
+        {
+            inputVector[idNumber-1] = 0;
+            document.getElementById(id).style.border = '5px solid black';
+        }
+        else if (document.getElementById(id).style.border == '5px solid black')
+        {
+            inputVector[idNumber-1] = 1;
+            document.getElementById(id).style.border = '5px solid red';
+        }
+
+        statusVector = eval(inputVector);
+
+        for (i=0; i<statusVector.length; i++)
+        {
+            idi = ('00' + (i+1).toString()).slice(-2);
+
+            if (statusVector[i] == '0')
+            {
+                document.getElementById('td' + idi).className = 'crossed';
+                document.getElementById('td' + idi + 'm').style.visibility='hidden';
+            }
+            else if (statusVector[i] == '1')
+            {
+                document.getElementById('td' + idi).className = '';
+                document.getElementById('td' + idi + 'm').style.visibility='hidden';
+            }
+            else if (statusVector[i] == '=')
+            {
+                document.getElementById('td' + idi).className = '';
+                document.getElementById('td' + idi + 'm').style.visibility='visible';
+            }
+        }
+    }
+}
+
+function eval(vectorEntradas)
+{
+    var outputVector = ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'];
+
+    for (i=0; i<vectorEntradas.length; i++)
+    {
+        if (vectorEntradas[i] == 1)
+            outputVector = vectorComposition(outputVector, disociadaTable[i]);
+    }
+
+    return outputVector;
+}
+
+function vectorComposition(vi, vj)
+{
+    var i, composedVector;
+
+    composedVector = vi;
+
+    for (i=0; i<composedVector.length; i++)
+    {
+        if (vi[i] == '0')
+        {
+            if (vj[i] == '0')
+                composedVector[i] = '0';
+            else if (vj[i] == '1')
+                composedVector[i] = '0';
+            else if (vj[i] == '=')
+                composedVector[i] = '0';
+        }
+        else if (vi[i] == '1')
+        {
+            if (vj[i] == '0')
+                composedVector[i] = '0';
+            else if (vj[i] == '1')
+                composedVector[i] = '1';
+            else if (vj[i] == '=')
+                composedVector[i] = '=';
+        }
+        else if (vi[i] == '=')
+        {
+            if (vj[i] == '0')
+                composedVector[i] = '0';
+            else if (vj[i] == '1')
+                composedVector[i] = '=';
+            else if (vj[i] == '=')
+                composedVector[i] = '=';
+        }
+    }
+
+    return composedVector;
+}
+
+</script>
+
+</head>
+
+<H1 align=center><B><U>DIETA DISOCIADA</U></B></H1>
+
+<body style="background-color:LightGray;" id='cuerpo' onLoad='init();disociadaMatrix()'>
+
+<div id='formulario'>
+
+    <table cellpadding='0' cellspacing='20' border=0>
+
+        <tr>
+            <td class='crossed' valign=top align=center id='td01' onClick='select(id)'><div id='td01m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Fruta &Aacute;cida</U></B></H1><P><H2>(c&iacute;tricos, naranja, lim&oacute;n, mandarina, pomelo, tomate)</H2></td>
+            <td class='crossed' valign=top align=center id='td06' onClick='select(id)'><div id='td06m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Legumbres</U></B></H1><P><H2>(garbanzo, guisante, jud&iacute;a, lenteja, soja, cacahuete, brotes, habas, altramuces)</H2></td>
+            <td class='crossed' valign=top align=center id='td11' onClick='select(id)'><div id='td11m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Huevos</U></B></H1><P><H2>(cualquier tipo)</H2></td>
+        <tr>
+
+            <td class='crossed' valign=top align=center id='td02' onClick='select(id)'><div id='td02m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Fruta Semi&aacute;cida</U></B></H1><P><H2>(albaricoque, cereza, fresa, higo, kiwi, melocot&oacute;n, pi&ntilde;a, uva, manazana, sand&iacute;a)</H2></td>
+            <td class='crossed' valign=top align=center id='td07' onClick='select(id)'><div id='td07m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Hortalizas</U></B></H1><P><H2>(alcachofa, berenjena, calabaza, calabac&iacute;n, pepino, pimiento, puerro, remolacha)</H2></td>
+            <td class='crossed' valign=top align=center id='td12' onClick='select(id)'><div id='td12m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Leche</U></B></H1><P><H2>(entera, semidesnatada, desnatada, yogures)</H2></td>
+        </tr>
+
+        <tr>
+            <td class='crossed' valign=top align=center id='td03' onClick='select(id)'><div id='td03m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Fruta Dulce</U></B></H1><P><H2>(ciruela, higo seco, orejones, uvas pasas)</H2></td>
+            <td class='crossed' valign=top align=center id='td08' onClick='select(id)'><div id='td08m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Feculosas</U></B></H1><P><H2>(boniato, casta&ntilde;a, patata, pl&aacute;tano, zanahoria cocida)</H2></td>
+            <td class='crossed' valign=top align=center id='td13' onClick='select(id)'><div id='td13m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Mantequilla</U></B></H1><P><H2>(mantequilla, margarina)</H2></td>
+        </tr>
+
+        <tr>
+            <td class='crossed' valign=top align=center id='td04' onClick='select(id)'><div id='td04m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Frutos Oleosos</U></B></H1><P><H2>(aguacate, almendra, pipas, nuez, pi&ntilde;&oacute;n, pistacho, s&eacute;samo, coco, anacardo, manteca de cacahuete)</H2></td>
+            <td class='crossed' valign=top align=center id='td09' onClick='select(id)'><div id='td09m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Verduras</U></B></H1><P><H2>(acelga, apio, coliflor, esp&aacute;rrago, espinaca, lechuga, champi&ntilde;ones)</H2></td>
+            <td class='crossed' valign=top align=center id='td14' onClick='select(id)'><div id='td14m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Quesos</U></B></H1><P><H2>(cualquier tipo)</H2></td>
+        </tr>
+
+        <tr>
+            <td class='crossed' valign=top align=center id='td05' onClick='select(id)'><div id='td05m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Cereales</U></B></H1><P><H2>(arroz, trigo y harinas, pastas, ma&iacute;z y derivados, avena, mijo, centeno, pan de cualquier tipo)</H2></td>
+            <td class='crossed' valign=top align=center id='td10' onClick='select(id)'><div id='td10m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Ajos y Cebollas</U></B></H1><P><H2>(ajo, cebolla)</H2></td>
+            <td class='crossed' valign=top align=center id='td15' onClick='select(id)'><div id='td15m' style='text-align: right; font-weight: bold; color: red; padding: 5px 5px 0px 0px; font-size: 120%'>-M-</div><H1><B><U>Carne y Pescado</U></B></H1><P><H2>(carnes, pescados, mariscos, embutidos, conservas)</H2></td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>                                                                                                                                                                                                                                                                                                 
