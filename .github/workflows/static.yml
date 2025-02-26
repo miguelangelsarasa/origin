@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+table
+{
+  //max-width: 100%;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td
+{
+  border: 5px solid black;
+  position: relative;
+}
+
+table td.crossed
+{
+    background-image: linear-gradient(to bottom right,  transparent calc(50% - 3px), red, transparent calc(50% + 3px)), linear-gradient(to top right,  transparent calc(50% - 3px), red, transparent calc(50% + 3px)); 
+    //background-image: linear-gradient(45deg, #F06 25%, transparent 26%, transparent 75%, #F06 75%), linear-gradient(135deg, #F06 25%, #000 26%, #000 75%, #F06 75%);
+}
+
+</style>
+
+<script>
+
+// The size of the table.
+var iMaxNum = 15;
+
+// Vector de entrada
+var inputVector = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+// Set the length of the array to iMaxNum. The first array index is zero, not 1.
+var disociadaTable = new Array(iMaxNum);
+
+function init()
+{
+    document.getElementById('td01m').style.visibility ='hidden';
+    document.getElementById('td02m').style.visibility ='hidden';
+    document.getEleme
